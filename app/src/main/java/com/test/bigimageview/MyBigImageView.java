@@ -30,8 +30,6 @@ public class MyBigImageView extends View implements GestureDetector.OnGestureLis
     private Matrix matrix;//图片压缩类
     public MyBigImageView(Context context) {
         this(context,null);
-        if (isInEditMode())
-            return;
     }
     /*
     *   注意：因为在xml文件中使用自定义控件的时候调用的是第二个构造方法，所以该构造方法
@@ -105,12 +103,6 @@ public class MyBigImageView extends View implements GestureDetector.OnGestureLis
         // 绘制
         canvas.drawBitmap(mBitmap,matrix,null);
     }
-
-    @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
-        super.onLayout(changed, left, top, right, bottom);
-    }
-
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         return mGestureDetector.onTouchEvent(event);
